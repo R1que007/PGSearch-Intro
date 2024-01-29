@@ -1,0 +1,9 @@
+<%= form_with(url: people_url, method: :get) do |f| %>
+  <%= label_tag(:query, "Search for") %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search", class: "btn btn-primary") %>
+<% end %>
+<% @people.each do |person|%>
+<%= person.name%>
+<% end%>
+<%= button_to "Clear", people_path, method: :delete, remote: true, id: "clear-btn" %>
